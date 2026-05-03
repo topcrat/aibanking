@@ -1,0 +1,14 @@
+C:\Users\topcr\source\repos\AIBanking\AIBanking.Data\obj\Debug\net9.0\AIBanking.Data.csproj.AssemblyReference.cache
+C:\Users\topcr\source\repos\AIBanking\AIBanking.Data\obj\Debug\net9.0\AIBanking.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\topcr\source\repos\AIBanking\AIBanking.Data\obj\Debug\net9.0\AIBanking.Data.AssemblyInfoInputs.cache
+C:\Users\topcr\source\repos\AIBanking\AIBanking.Data\obj\Debug\net9.0\AIBanking.Data.AssemblyInfo.cs
+C:\Users\topcr\source\repos\AIBanking\AIBanking.Data\obj\Debug\net9.0\AIBanking.Data.csproj.CoreCompileInputs.cache
+C:\Users\topcr\source\repos\AIBanking\AIBanking.Data\bin\Debug\net9.0\AIBanking.Data.deps.json
+C:\Users\topcr\source\repos\AIBanking\AIBanking.Data\bin\Debug\net9.0\AIBanking.Data.runtimeconfig.json
+C:\Users\topcr\source\repos\AIBanking\AIBanking.Data\bin\Debug\net9.0\AIBanking.Data.dll
+C:\Users\topcr\source\repos\AIBanking\AIBanking.Data\bin\Debug\net9.0\AIBanking.Data.pdb
+C:\Users\topcr\source\repos\AIBanking\AIBanking.Data\obj\Debug\net9.0\AIBanking.Data.dll
+C:\Users\topcr\source\repos\AIBanking\AIBanking.Data\obj\Debug\net9.0\refint\AIBanking.Data.dll
+C:\Users\topcr\source\repos\AIBanking\AIBanking.Data\obj\Debug\net9.0\AIBanking.Data.pdb
+C:\Users\topcr\source\repos\AIBanking\AIBanking.Data\obj\Debug\net9.0\AIBanking.Data.genruntimeconfig.cache
+C:\Users\topcr\source\repos\AIBanking\AIBanking.Data\obj\Debug\net9.0\ref\AIBanking.Data.dll

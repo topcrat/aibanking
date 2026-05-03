@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>32598c9a-920c-459c-a619-98d1456303d6</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Agents.AI" Version="1.1.0" />
+    <PackageReference Include="Microsoft.Agents.AI.Anthropic" Version="1.1.0-rc1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="9.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.11" />
+    <PackageReference Include="Microsoft.SemanticKernel" Version="1.29.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.22.1" />
+    <PackageReference Include="Scalar.AspNetCore" Version="2.13.22" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AIBanking.Data\AIBanking.Data.csproj" />
+    <ProjectReference Include="..\AIBanking.ServiceDefaults\AIBanking.ServiceDefaults.csproj" />
+  </ItemGroup>
+
+</Project>

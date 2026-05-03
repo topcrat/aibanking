@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>a9f24c1e-3b87-4d50-b12e-0f8d3e7a9c21</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Agents.AI" Version="1.1.0" />
+    <PackageReference Include="Microsoft.Agents.AI.Anthropic" Version="1.1.0-rc1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.11" />
+    <PackageReference Include="Scalar.AspNetCore" Version="2.13.22" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AIBanking.Data\AIBanking.Data.csproj" />
+    <ProjectReference Include="..\AIBanking.ServiceDefaults\AIBanking.ServiceDefaults.csproj" />
+    <ProjectReference Include="..\AIBanking\AIBanking.csproj" />
+  </ItemGroup>
+
+</Project>
