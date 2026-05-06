@@ -75,8 +75,9 @@ builder.Services.AddSingleton<IBankingAgentService, BankingAgentService>();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
-var jwtKey = builder.Configuration["JwtSettings:Key"]
-    ?? throw new InvalidOperationException("JwtSettings:Key is not configured.");
+var jwtKey = builder.Configuration["JwtSettings:Key"];
+if (string.IsNullOrWhiteSpace(jwtKey))
+    throw new InvalidOperationException("JwtSettings:Key is not configured. Set the JwtSettings__Key environment variable.");
 
 // JWT Authentication Setup
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
