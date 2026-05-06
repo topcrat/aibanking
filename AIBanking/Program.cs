@@ -16,8 +16,9 @@ var rawConn = builder.Configuration.GetConnectionString("DefaultConnection") ?? 
 if (rawConn.StartsWith("postgres://") || rawConn.StartsWith("postgresql://"))
 {
     var uri = new Uri(rawConn);
-    var userInfo = uri.UserInfo.Split(':');
-    rawConn = $"Host={uri.Host};Port={uri.Port};Database={uri.AbsolutePath.TrimStart('/')};Username={userInfo[0]};Password={userInfo[1]};SSL Mode=Require;Trust Server Certificate=true";
+    var userInfo = uri.UserInfo.Split(':', 2);
+    var port = uri.Port > 0 ? uri.Port : 5432;
+    rawConn = $"Host={uri.Host};Port={port};Database={uri.AbsolutePath.TrimStart('/')};Username={userInfo[0]};Password={Uri.UnescapeDataString(userInfo[1])};SSL Mode=Require;Trust Server Certificate=true";
     builder.Configuration["ConnectionStrings:DefaultConnection"] = rawConn;
 }
 
