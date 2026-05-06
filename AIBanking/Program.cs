@@ -11,6 +11,16 @@ using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Convert postgres:// URL (Render) to Npgsql key=value format
+var rawConn = builder.Configuration.GetConnectionString("DefaultConnection") ?? "";
+if (rawConn.StartsWith("postgres://") || rawConn.StartsWith("postgresql://"))
+{
+    var uri = new Uri(rawConn);
+    var userInfo = uri.UserInfo.Split(':');
+    rawConn = $"Host={uri.Host};Port={uri.Port};Database={uri.AbsolutePath.TrimStart('/')};Username={userInfo[0]};Password={userInfo[1]};SSL Mode=Require;Trust Server Certificate=true";
+    builder.Configuration["ConnectionStrings:DefaultConnection"] = rawConn;
+}
+
 builder.AddServiceDefaults();
 
 // Add services to the container.
