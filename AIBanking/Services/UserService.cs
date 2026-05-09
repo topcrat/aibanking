@@ -98,24 +98,27 @@ public sealed class UserService(
     public async Task SeedAdminIfEmptyAsync(string defaultPassword, CancellationToken ct = default)
     {
         await using var db = await dbFactory.CreateDbContextAsync(ct);
-        if (await db.Users.AnyAsync(ct)) return;
 
-        var admin = new User
+        var admin = await db.Users.FirstOrDefaultAsync(u => u.Username == "admin", ct);
+        if (admin is null)
         {
-            Id           = Guid.NewGuid(),
-            Username     = "admin",
-            PasswordHash = HashPassword(defaultPassword),
-            FullName     = "System Administrator",
-            Role         = UserRoles.Admin,
-            IsActive     = true,
-            CreatedAt    = DateTime.UtcNow
-        };
+            admin = new User
+            {
+                Id        = Guid.NewGuid(),
+                Username  = "admin",
+                FullName  = "System Administrator",
+                Role      = UserRoles.Admin,
+                IsActive  = true,
+                CreatedAt = DateTime.UtcNow
+            };
+            db.Users.Add(admin);
+        }
 
-        db.Users.Add(admin);
+        admin.PasswordHash = HashPassword(defaultPassword);
         await db.SaveChangesAsync(ct);
 
         logger.LogWarning(
-            "Admin user seeded with default password. CHANGE THIS IMMEDIATELY via POST /api/auth/users/{{id}}/password.");
+            "Admin password synced from AdminDefaults:Password. CHANGE THIS via POST /api/auth/users/{{id}}/password.");
     }
 
     // ── Password hashing (PBKDF2 / SHA-256, 100k iterations) ─────────────────
